@@ -10,6 +10,13 @@
                 hidden
                 @change="handleFileChange"
             />
+            <label for="open" class="insert">打开</label>
+            <input
+                id="open"
+                type="file"
+                hidden
+                @change="handleFileImport"
+            />            
             <el-button style="margin-left: 10px;" @click="preview">预览</el-button>
             <el-button @click="save">保存</el-button>
             <el-button @click="clearCanvas">清空画布</el-button>
@@ -142,8 +149,32 @@ export default {
             this.$store.commit('redo')
         },
 
+        handleFileImport(e) {
+            console.log('wuxiangyu is here')
+            const file = e.target.files[0]
+            const reader = new FileReader()
+            reader.onload = (res) => {
+                const fileResult = res.target.result
+                this.$store.commit('setComponentData', this.resetID(JSON.parse(fileResult)))
+            }
+            reader.readAsText(file)
+        },
+
+        resetID(data) {
+            data.forEach(item => {
+                item.id = generateID()
+                if (item.component === 'Group') {
+                    this.resetID(item.propValue)
+                }
+            })
+
+            return data
+        },        
+
         handleFileChange(e) {
             const file = e.target.files[0]
+            console.log('wuxiangyu is here22')
+
             if (!file.type.includes('image')) {
                 toast('只能插入图片')
                 return
@@ -200,6 +231,19 @@ export default {
             localStorage.setItem('canvasData', JSON.stringify(this.componentData))
             localStorage.setItem('canvasStyle', JSON.stringify(this.canvasStyleData))
             this.$message.success('保存成功')
+            this.ExportData(this.componentData, 'componentData.json')
+            this.ExportData(this.canvasStyleData, 'canvasStyleData.json')
+        },
+
+        ExportData(value, savefile) {
+            let content = new Blob([JSON.stringify(value)])
+            let urlObject = window.URL || window.webkitURL || window
+            let url = urlObject.createObjectURL(content)
+            let el = document.createElement('a')
+            el.href = url
+            el.download = savefile
+            el.click()
+            urlObject.revokeObjectURL(url)
         },
 
         clearCanvas() {

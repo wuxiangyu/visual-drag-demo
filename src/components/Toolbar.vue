@@ -3,7 +3,7 @@
         <div class="toolbar">
             <el-button @click="undo">撤消</el-button>
             <el-button @click="redo">重做</el-button>
-            <label for="input" class="insert">插入图片</label>
+            <label v-show="false" for="input" class="insert">插入图片</label>
             <input
                 id="input"
                 type="file"
@@ -20,16 +20,17 @@
             <el-button style="margin-left: 10px;" @click="preview">预览</el-button>
             <el-button @click="save">保存</el-button>
             <el-button @click="clearCanvas">清空画布</el-button>
-            <el-button :disabled="!areaData.components.length" @click="compose">组合</el-button>
-            <el-button
-                :disabled="!curComponent || curComponent.isLock || curComponent.component != 'Group'"
+            <el-button v-show="false" :disabled="!areaData.components.length" @click="compose">组合</el-button>
+            <el-button 
+                v-show="false"
+                :disabled="!curComponent || curComponent.isLock || curComponent.component != 'Group'" 
                 @click="decompose"
             >
                 拆分
             </el-button>
 
-            <el-button :disabled="!curComponent || curComponent.isLock" @click="lock">锁定</el-button>
-            <el-button :disabled="!curComponent || !curComponent.isLock" @click="unlock">解锁</el-button>
+            <el-button v-show="false" :disabled="!curComponent || curComponent.isLock" @click="lock">锁定</el-button>
+            <el-button v-show="false" :disabled="!curComponent || !curComponent.isLock" @click="unlock">解锁</el-button>
             <div class="canvas-config">
                 <span>画布大小</span>
                 <input v-model="canvasStyleData.width">
@@ -150,11 +151,16 @@ export default {
         },
 
         handleFileImport(e) {
-            console.log('wuxiangyu is here')
             const file = e.target.files[0]
             const reader = new FileReader()
+            console.log(file.type)
+            if (!file.type.includes('json')) {
+                toast('只能插入json文件')
+                return
+            }
             reader.onload = (res) => {
                 const fileResult = res.target.result
+                this.clearCanvas()
                 this.$store.commit('setComponentData', this.resetID(JSON.parse(fileResult)))
             }
             reader.readAsText(file)
@@ -173,7 +179,6 @@ export default {
 
         handleFileChange(e) {
             const file = e.target.files[0]
-            console.log('wuxiangyu is here22')
 
             if (!file.type.includes('image')) {
                 toast('只能插入图片')

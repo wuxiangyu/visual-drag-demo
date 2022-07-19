@@ -89,6 +89,22 @@ const list = [
         },
     },
     {
+        component: 'v-time',
+        label: '时间',
+        propValue: '20:14',
+        icon: 'wenben',
+        style: {
+            width: 200,
+            height: 40,
+            fontSize: 20,
+            fontWeight: 400,
+            lineHeight: '',
+            letterSpacing: 0,
+            textAlign: '',
+            color: '',
+        },
+    },
+    {
         component: 'SVGStar',
         label: '星形',
         icon: 'kongwujiaoxing',

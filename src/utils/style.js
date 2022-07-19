@@ -3,7 +3,7 @@ import { sin, cos } from '@/utils/translate'
 export const styleData = [
     { key: 'left', label: 'x 坐标' },
     { key: 'top', label: 'y 坐标' },
-    { key: 'rotate', label: '旋转角度' },
+    // { key: 'rotate', label: '旋转角度' },// 取消旋转角度，我们不需要
     { key: 'width', label: '宽' },
     { key: 'height', label: '高' },
     { key: 'color', label: '颜色' },
@@ -11,7 +11,7 @@ export const styleData = [
     { key: 'borderWidth', label: '边框宽度' },
     { key: 'borderStyle', label: '边框风格' },
     { key: 'borderColor', label: '边框颜色' },
-    { key: 'borderRadius', label: '边框半径' },
+    // { key: 'borderRadius', label: '边框半径' },//取消边框半径，我们不需要
     { key: 'fontSize', label: '字体大小' },
     { key: 'fontWeight', label: '字体粗细' },
     { key: 'lineHeight', label: '行高' },

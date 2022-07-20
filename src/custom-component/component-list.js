@@ -123,6 +123,26 @@ const list = [
             backgroundColor: 'rgba(255, 255, 255, 1)',
         },
     },
+    {
+        component: 'AppBlock',
+        label: '应用',
+        icon: 'tupian',
+        propValue: {
+            url: require('@/assets/title.jpg'),
+            appname: '文稿演示',
+            flip: {
+                horizontal: false,
+                vertical: false,
+            },
+        },
+        style: {
+            width: 300,
+            height: 200,
+            borderRadius: '',
+            fontSize: 20,
+            textAlign: 'center',
+        },
+    },    
 ]
 
 for (let i = 0, len = list.length; i < len; i++) {

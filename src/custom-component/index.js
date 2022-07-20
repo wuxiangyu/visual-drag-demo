@@ -7,6 +7,7 @@ const components = [
     'Group',
     'RectShape',
     'VTime',
+    'AppBlock',
 ]
 
 components.forEach(key => {

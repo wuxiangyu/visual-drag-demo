@@ -34,7 +34,10 @@
                 </el-select>
                 <el-input v-else v-model.number="curComponent.style[key]" type="number" />
             </el-form-item>
-            <el-form-item v-if="curComponent && isShowContent()" label="内容">
+            <el-form-item v-if="curComponent.component === 'AppBlock'" label="内容">
+                <el-input v-model="curComponent.propValue.appname" type="textarea" />
+            </el-form-item>
+            <el-form-item v-else-if="curComponent && isShowContent()" label="内容">
                 <el-input v-model="curComponent.propValue" type="textarea" />
             </el-form-item>
             <el-form-item v-if="false && curComponent && curComponent.component === 'Picture'" label="镜像翻转">

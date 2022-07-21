@@ -2,6 +2,7 @@
 export const commonStyle = {
     rotate: 0,
     opacity: 1,
+    packageId: '',
 }
 
 export const commonAttr = {

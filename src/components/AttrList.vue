@@ -6,6 +6,7 @@
                 <el-color-picker v-if="key == 'borderColor'" v-model="curComponent.style[key]" show-alpha></el-color-picker>
                 <el-color-picker v-else-if="key == 'color'" v-model="curComponent.style[key]" show-alpha></el-color-picker>
                 <el-color-picker v-else-if="key == 'backgroundColor'" v-model="curComponent.style[key]" show-alpha></el-color-picker>
+                <el-input v-else-if="key== 'packageId'" v-model="curComponent.style[key]" type="textarea" />
                 <el-select v-else-if="selectKey.includes(key)" v-model="curComponent.style[key]">
                     <template v-if="key == 'textAlign'">
                         <el-option

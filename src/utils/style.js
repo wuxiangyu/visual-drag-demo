@@ -19,6 +19,7 @@ export const styleData = [
     { key: 'textAlign', label: '左右对齐' },
     { key: 'verticalAlign', label: '上下对齐' },
     { key: 'opacity', label: '透明度' },
+    { key: 'packageId', label: '包名' },
 ]
 
 export function getShapeStyle(style) {

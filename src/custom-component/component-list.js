@@ -137,6 +137,7 @@ const list = [
             },
         },
         style: {
+            backgroundicon: '',
             width: 300,
             height: 200,
             borderRadius: '',

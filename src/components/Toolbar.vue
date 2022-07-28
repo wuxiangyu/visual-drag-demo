@@ -57,6 +57,7 @@ import { commonStyle, commonAttr } from '@/custom-component/component-list'
 import eventBus from '@/utils/eventBus'
 import { deepCopy, $ } from '@/utils/utils'
 import { divide, multiply } from 'mathjs'
+import { TranslateJjson } from '@/utils/Translate/JsonUtils'
 
 export default {
     components: { Preview },
@@ -237,7 +238,7 @@ export default {
             localStorage.setItem('canvasStyle', JSON.stringify(this.canvasStyleData))
             this.$message.success('保存成功')
             this.ExportData(this.componentData, 'componentData.json')
-            this.ExportData(this.canvasStyleData, 'canvasStyleData.json')
+            this.ExportData(TranslateJjson(this.componentData), 'javaComponent.json')
         },
 
         ExportData(value, savefile) {

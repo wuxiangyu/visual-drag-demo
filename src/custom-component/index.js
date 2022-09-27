@@ -8,6 +8,7 @@ const components = [
     'RectShape',
     'VTime',
     'AppBlock',
+    'DotNineBg',
 ]
 
 components.forEach(key => {

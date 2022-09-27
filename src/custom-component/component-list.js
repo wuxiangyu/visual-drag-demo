@@ -83,7 +83,26 @@ const list = [
             fontSize: 20,
             textAlign: 'center',
         },
-    },    
+    },
+    {
+        component: 'DotNineBg',
+        label: '点9图',
+        icon: 'tupian',
+        propValue: {
+            url: require('@/assets/title.jpg'),
+            flip: {
+                horizontal: false,
+                vertical: false,
+            },
+        },
+        style: {
+            width: 300,
+            height: 200,
+            borderRadius: '',
+            verticalAlign: 'middle',
+            textAlign: 'center',
+        },
+    },
 ]
 
 for (let i = 0, len = list.length; i < len; i++) {

@@ -3,7 +3,7 @@
         <div class="toolbar">
             <el-button @click="undo">撤消</el-button>
             <el-button @click="redo">重做</el-button>
-            <label v-show="false" for="input" class="insert">插入图片</label>
+            <label v-show="true" for="input" class="insert">插入图片</label>
             <input
                 id="input"
                 type="file"

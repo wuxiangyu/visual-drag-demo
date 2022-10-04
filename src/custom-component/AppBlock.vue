@@ -41,6 +41,10 @@ export default {
         'propValue.flip.horizontal': function () {
             this.mirrorFlip()
         },
+        'element.style.backgroundicon': function () {
+            this.isFirst = true
+            this.drawImage()
+        },
     },
     mounted() {
         this.canvas = this.$refs.canvas
@@ -55,7 +59,9 @@ export default {
             if (this.isFirst) {
                 this.isFirst = false
                 this.img = document.createElement('img')
-                this.img.src = this.propValue.url
+                // this.img.src = this.propValue.url
+                this.img.src = '../static/' + this.element.style.backgroundicon
+                console.log(this.img.src)
                 this.img.onload = () => {
                     this.ctx.drawImage(this.img, 0, 0, width, height)
                     this.mirrorFlip()
@@ -70,7 +76,6 @@ export default {
             const { width, height } = this.element.style
             const hvalue = horizontal ? -1 : 1
             const vValue = vertical ? -1 : 1
-
             // 清除图片
             this.ctx.clearRect(0, 0, width, height)
             // 平移图片

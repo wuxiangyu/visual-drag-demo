@@ -42,8 +42,8 @@ const list = [
             },
         },
         style: {
-            width: 300,
-            height: 200,
+            width: 91,
+            height: 91,
             borderRadius: '',
         },
     },
@@ -68,7 +68,7 @@ const list = [
         label: '应用',
         icon: 'tupian',
         propValue: {
-            url: require('@/assets/title.jpg'),
+            url: '../static/images/files.png',
             appname: '文稿演示',
             flip: {
                 horizontal: false,
@@ -76,9 +76,9 @@ const list = [
             },
         },
         style: {
-            backgroundicon: '',
-            width: 60,
-            height: 60,
+            backgroundicon: 'images/files.png',
+            width: 91,
+            height: 91,
             borderRadius: '',
             fontSize: 20,
             textAlign: 'center',
@@ -89,7 +89,7 @@ const list = [
         label: '点9图',
         icon: 'tupian',
         propValue: {
-            url: require('@/assets/title.jpg'),
+            url: '../static/images/bg_app_list.png',
             flip: {
                 horizontal: false,
                 vertical: false,

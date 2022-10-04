@@ -1,7 +1,7 @@
 const CompressionPlugin = require('compression-webpack-plugin')
 
-const isProd = process.env.NODE_ENV === 'production'
-
+// const isProd = process.env.NODE_ENV === 'production'
+const isProd = false
 module.exports = {
     publicPath: isProd ? '/visual-drag-demo/' : './',
     configureWebpack: () => {

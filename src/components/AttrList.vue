@@ -7,6 +7,14 @@
                 <el-color-picker v-else-if="key == 'color'" v-model="curComponent.style[key]" show-alpha></el-color-picker>
                 <el-color-picker v-else-if="key == 'backgroundColor'" v-model="curComponent.style[key]" show-alpha></el-color-picker>
                 <el-input v-else-if="textareaKey.includes(key)" v-model="curComponent.style[key]" type="textarea" />
+                <el-select v-else-if="key == 'backgroundicon'" v-model="curComponent.style[key]">
+                    <el-option 
+                        v-for="item in pictureDatas"
+                        :key="item"
+                        :label="item"
+                        :value="item"
+                    ></el-option>
+                </el-select>
                 <el-select v-else-if="selectKey.includes(key)" v-model="curComponent.style[key]">
                     <template v-if="key == 'textAlign'">
                         <el-option
@@ -97,7 +105,8 @@ export default {
             ],
             selectKey: ['textAlign', 'borderStyle', 'verticalAlign'],
             styleData,
-            textareaKey: ['packageId', 'backgroundicon'],
+            textareaKey: ['packageId'],
+            pictureDatas: ['1', '2'],
         }
     },
     computed: {
@@ -111,6 +120,16 @@ export default {
         curComponent() {
             return this.$store.state.curComponent
         },
+    },
+    mounted() {
+        const files = require.context('@/../static/images/', false, /.png$/)
+
+        let arr = []
+        for (let i = 0; i < files.keys().length; i++) {
+            // console.log(files.keys()[i].substr(2, files.keys()[i].length))
+            arr.push('images/' + files.keys()[i].substr(2, files.keys()[i].length))
+        }
+        this.pictureDatas = arr
     },
     methods: {
         isShowContent() {

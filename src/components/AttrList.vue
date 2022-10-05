@@ -7,14 +7,17 @@
                 <el-color-picker v-else-if="key == 'color'" v-model="curComponent.style[key]" show-alpha></el-color-picker>
                 <el-color-picker v-else-if="key == 'backgroundColor'" v-model="curComponent.style[key]" show-alpha></el-color-picker>
                 <el-input v-else-if="textareaKey.includes(key)" v-model="curComponent.style[key]" type="textarea" />
-                <el-select v-else-if="key == 'backgroundicon'" v-model="curComponent.style[key]">
-                    <el-option 
-                        v-for="item in pictureDatas"
-                        :key="item"
-                        :label="item"
-                        :value="item"
-                    ></el-option>
-                </el-select>
+                <div v-else-if="key == 'backgroundicon'">
+                    <el-form-item for="input" :label="curComponent.style[key]">
+                        <!-- <label for="input" > 点击更换图片</label> -->
+                        <input 
+                            id="input"
+                            value=""
+                            type="file" 
+                            @change="uploadforCanvas"
+                        />
+                    </el-form-item>
+                </div>
                 <el-select v-else-if="selectKey.includes(key)" v-model="curComponent.style[key]">
                     <template v-if="key == 'textAlign'">
                         <el-option
@@ -106,7 +109,6 @@ export default {
             selectKey: ['textAlign', 'borderStyle', 'verticalAlign'],
             styleData,
             textareaKey: ['packageId'],
-            pictureDatas: ['1', '2'],
         }
     },
     computed: {
@@ -137,6 +139,24 @@ export default {
             const component = this.curComponent.component
             return !excludes.includes(component)
         },
+        uploadforCanvas(e) {
+            let file = e.target.files[0]
+            console.log('wuxiangyu')
+            console.log(file)
+            if (!file.type.includes('image')) {
+                console.log('只能上传图片')
+                return
+            }
+            console.log(file.name)
+            this.curComponent.style.backgroundicon = 'images/' + file.name
+            let img = new FileReader()
+            img.readAsDataURL(file)
+            // console.log(img)
+            img.onload = ({ target }) => {
+                this.curComponent.propValue.url = target.result
+                // console.log(target.result)
+            }
+        },
     },
 }
 </script>
@@ -148,4 +168,36 @@ export default {
     padding-top: 0;
     height: 100%;
 }
+.insert {
+        display: inline-block;
+        line-height: 1;
+        white-space: nowrap;
+        cursor: pointer;
+        background: #fff;
+        border: 1px solid #dcdfe6;
+        color: #606266;
+        -webkit-appearance: none;
+        text-align: center;
+        box-sizing: border-box;
+        outline: 0;
+        margin: 0;
+        transition: .1s;
+        font-weight: 500;
+        padding: 9px 15px;
+        font-size: 12px;
+        border-radius: 3px;
+        margin-left: 10px;
+
+        &:active {
+            color: #3a8ee6;
+            border-color: #3a8ee6;
+            outline: 0;
+        }
+
+        &:hover {
+            background-color: #ecf5ff;
+            color: #3a8ee6;
+        }
+    }
+
 </style>

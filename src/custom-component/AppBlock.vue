@@ -41,7 +41,7 @@ export default {
         'propValue.flip.horizontal': function () {
             this.mirrorFlip()
         },
-        'element.style.backgroundicon': function () {
+        'propValue.url': function () {
             this.isFirst = true
             this.drawImage()
         },
@@ -59,9 +59,9 @@ export default {
             if (this.isFirst) {
                 this.isFirst = false
                 this.img = document.createElement('img')
-                // this.img.src = this.propValue.url
-                this.img.src = '../static/' + this.element.style.backgroundicon
-                console.log(this.img.src)
+                this.img.src = this.propValue.url
+                // this.img.src = '../static/' + this.element.style.backgroundicon
+                // console.log(this.img.src)
                 this.img.onload = () => {
                     this.ctx.drawImage(this.img, 0, 0, width, height)
                     this.mirrorFlip()

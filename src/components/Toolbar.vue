@@ -59,6 +59,9 @@ import { deepCopy, $ } from '@/utils/utils'
 import { divide, multiply } from 'mathjs'
 import { TranslateJjson } from '@/utils/Translate/JsonUtils'
 
+import JSZip from 'jszip'
+import { saveAs } from 'file-saver'
+
 export default {
     components: { Preview },
     data() {
@@ -237,8 +240,31 @@ export default {
             localStorage.setItem('canvasData', JSON.stringify(this.componentData))
             localStorage.setItem('canvasStyle', JSON.stringify(this.canvasStyleData))
             this.$message.success('保存成功')
-            this.ExportData(this.componentData, 'componentData.json')
-            this.ExportData(TranslateJjson(this.componentData), 'javaComponent.json')
+            // this.ExportData(this.componentData, 'componentData.json')
+            // this.ExportData(TranslateJjson(this.componentData), 'javaComponent.json')
+            this.exportZIP(this.componentData)
+        },
+
+        exportZIP(componetJson) {
+            const zip = new JSZip()
+            const img = zip.folder('images')
+            // img.file('1.png', this.picPath.replace(/^data:image\/(png|jpg);base64,/, ''), { base64: true })
+            console.log('exportZIP')
+            // let content = new Blob([JSON.stringify(componetJson)])
+            zip.file('componentData.json', JSON.stringify(componetJson))
+            zip.file('javaComponent.json', JSON.stringify(TranslateJjson(componetJson)))
+            for (let j in componetJson) {
+                // console.log(componetJson[j].component)
+                if (componetJson.hasOwnProperty(j) && (componetJson[j].propValue.url) && (componetJson[j].style.backgroundicon)) {
+                    let imagePath = componetJson[j].style.backgroundicon.substr(7, componetJson[j].style.backgroundicon.length)
+                    console.log(imagePath)
+                    // console.log(componetJson[j].propValue.url)
+                    img.file(imagePath, componetJson[j].propValue.url.replace(/^data:image\/(png|jpg);base64,/, ''), { base64: true })
+                }
+            }
+            zip.generateAsync({ type: 'blob' }).then(fruit => {
+                saveAs(fruit, 'wuxiangyu.zip')
+            })
         },
 
         ExportData(value, savefile) {

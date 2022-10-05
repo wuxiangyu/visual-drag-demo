@@ -40,6 +40,10 @@ export default {
         'propValue.flip.horizontal': function () {
             this.mirrorFlip()
         },
+        'propValue.url': function () {
+            this.isFirst = true
+            this.drawImage()
+        },
     },
     mounted() {
         this.canvas = this.$refs.canvas

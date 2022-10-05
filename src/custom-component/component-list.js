@@ -96,6 +96,7 @@ const list = [
             },
         },
         style: {
+            backgroundicon: 'images/bg_app_list.png',
             width: 300,
             height: 200,
             borderRadius: '',

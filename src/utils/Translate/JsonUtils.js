@@ -1,6 +1,7 @@
 import { getJAppBlock } from '@/utils/Translate/appBlock'
 import { getJTime } from '@/utils/Translate/Vtime'
 import { getJDotNineBg } from '@/utils/Translate/DotNineBg'
+import { deepCopy } from '@/utils/utils'
 
 export function TranslateJjson(jsonfille) {
     let javaJson = []
@@ -20,5 +21,28 @@ export function TranslateJjson(jsonfille) {
         }
         // console.log(jsonfille[j].component)
     }
-    return javaJson
+    let tmpLauncherJson = deepCopy(LauncherJson)
+    tmpLauncherJson.children[0].children = javaJson
+    // console.log(tmpLauncherJson.children[0].children)
+    return tmpLauncherJson
+}
+
+export const LauncherJson = {
+    componentName: 'Page',
+    showWelcome: true,
+    showScreenShare: false,
+    showAllApp: false,
+    defaultLanguage: 'en',
+    props: {
+        style: {
+            showRawAllAppBtn: true,
+        },
+    },
+    children: [
+        {
+            componentName: 'LauncherContainer',
+            props: {},
+            children: [],
+        },
+    ],
 }

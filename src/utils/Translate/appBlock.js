@@ -1,23 +1,22 @@
 import { deepCopy } from '@/utils/utils'
 
 export const jAppBlock = {
+    widgetName: 'AppWidget',
     props: {
-        packageId: 'com.dss.teamboard',
-        name: {
-            zh: '白板书写',
-            en: 'Writting Board',
+        launch: {
+            clickType: 'Click',
+            launchType: 'Activity',
+            packageName: 'com.dss.teamboard',
         },
-        style: {
-            position: 'absolute',
-            left: 387,
-            top: 565,
-            fontSize: 14,
-            imageWidth: 91,
-            imageHeight: 91,
-        },
-        icon: 'images/icon_whiteboard.png',
+        left: 387,
+        top: 565,
+        width: 91,
+        height: 91,
+        textSize: 14,
+        textColor: '#ffffff',
+        nameId: 'str_white_board',
+        normalIcon: '/vendor/dss/appIcon/classic/default/com.dss.teamboard.png',
     },
-    componentName: 'AppBlock',
 }
 
 export const vAppBlock = {
@@ -53,15 +52,15 @@ export const vAppBlock = {
 
 export function getJAppBlock(obj) {
     let tmpJappBlock = deepCopy(jAppBlock)
-    tmpJappBlock.componentName = 'AppBlock'
-    tmpJappBlock.props.packageId = obj.style.packageId
-    tmpJappBlock.props.name.zh = obj.propValue.appname
-    tmpJappBlock.props.icon = obj.style.backgroundicon
-    tmpJappBlock.props.style.left = obj.style.left
-    tmpJappBlock.props.style.top = obj.style.top
-    tmpJappBlock.props.style.imageWidth = obj.style.width
-    tmpJappBlock.props.style.imageHeight = obj.style.height
-    tmpJappBlock.props.style.fontSize = obj.style.fontSize
-
+    tmpJappBlock.widgetName = 'AppWidget'
+    tmpJappBlock.props.launch.packageName = obj.style.packageId
+    tmpJappBlock.props.normalIcon = obj.style.backgroundicon
+    tmpJappBlock.props.left = obj.style.left
+    tmpJappBlock.props.top = obj.style.top
+    tmpJappBlock.props.width = obj.style.width
+    tmpJappBlock.props.height = obj.style.height
+    tmpJappBlock.props.textSize = obj.style.fontSize
+    tmpJappBlock.props.nameId = obj.propValue.appname
+    tmpJappBlock.props.textColor = obj.style.color
     return tmpJappBlock
 }

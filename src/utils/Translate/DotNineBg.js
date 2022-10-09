@@ -1,19 +1,15 @@
 import { deepCopy } from '@/utils/utils'
 
 export const jDotNineBg = {
+    widgetName: 'NinePatchWidget',
     props: {
-        packageId: '',
-        icon: 'images/bg_app_list.png',
-        style: {
-            isInCenter: true,
-            position: 'absolute',
-            left: 387,
-            top: 588,
-            width: 550,
-            height: 110,
-        },
+        ninePatchIcon: '/vendor/dss/appIcon/classic/bg_app_list.png',
+        horizontalCenter: true,
+        top: 588,
+        left: 0,
+        width: 550,
+        height: 110,
     },
-    componentName: 'DotNineBg',
 }
 
 export const vDotNineBg = {
@@ -48,20 +44,17 @@ export const vDotNineBg = {
 
 export function getJDotNineBg(obj) {
     let tmpJDotNineBg = deepCopy(jDotNineBg)
-    tmpJDotNineBg.componentName = 'DotNineBg'
-    if (obj.style.packageId !== '') {
-        tmpJDotNineBg.props.packageId = obj.style.packageId
-    }
+    tmpJDotNineBg.widgetName = 'NinePatchWidget'
     if (obj.style.textAlign === 'center') {
-        tmpJDotNineBg.props.isInCenter = true
+        tmpJDotNineBg.props.horizontalCenter = true
     } else {
-        tmpJDotNineBg.props.isInCenter = false
+        tmpJDotNineBg.props.horizontalCenter = false
     }
-    tmpJDotNineBg.props.icon = obj.style.backgroundicon
-    tmpJDotNineBg.props.style.left = obj.style.left
-    tmpJDotNineBg.props.style.top = obj.style.top
-    tmpJDotNineBg.props.style.imageWidth = obj.style.width
-    tmpJDotNineBg.props.style.imageHeight = obj.style.height
+    tmpJDotNineBg.props.ninePatchIcon = obj.style.backgroundicon
+    tmpJDotNineBg.props.left = obj.style.left
+    tmpJDotNineBg.props.top = obj.style.top
+    tmpJDotNineBg.props.width = obj.style.width
+    tmpJDotNineBg.props.height = obj.style.height
    
     return tmpJDotNineBg
 }

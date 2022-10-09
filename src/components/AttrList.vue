@@ -4,7 +4,7 @@
         <el-form>
             <el-form-item v-for="({key,label}, index) in styleKeys" :key="index" :label="label">
                 <el-color-picker v-if="key == 'borderColor'" v-model="curComponent.style[key]" show-alpha></el-color-picker>
-                <el-color-picker v-else-if="key == 'color'" v-model="curComponent.style[key]" show-alpha></el-color-picker>
+                <el-color-picker v-else-if="key == 'color'" v-model="curComponent.style[key]"></el-color-picker>
                 <el-color-picker v-else-if="key == 'backgroundColor'" v-model="curComponent.style[key]" show-alpha></el-color-picker>
                 <el-input v-else-if="textareaKey.includes(key)" v-model="curComponent.style[key]" type="textarea" />
                 <div v-else-if="key == 'backgroundicon'">

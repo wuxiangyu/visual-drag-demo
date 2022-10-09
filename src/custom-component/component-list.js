@@ -60,7 +60,7 @@ const list = [
             lineHeight: '',
             letterSpacing: 0,
             textAlign: 'center',
-            color: '',
+            color: '#FFFFFF',
         },
     },
     {
@@ -80,8 +80,9 @@ const list = [
             width: 91,
             height: 91,
             borderRadius: '',
-            fontSize: 20,
+            fontSize: 14,
             textAlign: 'center',
+            color: '#FFFFFF',
         },
     },
     {

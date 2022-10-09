@@ -22,27 +22,11 @@ export function TranslateJjson(jsonfille) {
         // console.log(jsonfille[j].component)
     }
     let tmpLauncherJson = deepCopy(LauncherJson)
-    tmpLauncherJson.children[0].children = javaJson
+    tmpLauncherJson.widgetList = javaJson
     // console.log(tmpLauncherJson.children[0].children)
     return tmpLauncherJson
 }
 
 export const LauncherJson = {
-    componentName: 'Page',
-    showWelcome: true,
-    showScreenShare: false,
-    showAllApp: false,
-    defaultLanguage: 'en',
-    props: {
-        style: {
-            showRawAllAppBtn: true,
-        },
-    },
-    children: [
-        {
-            componentName: 'LauncherContainer',
-            props: {},
-            children: [],
-        },
-    ],
+    widgetList: [],
 }

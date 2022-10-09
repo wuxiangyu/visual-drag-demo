@@ -1,17 +1,14 @@
 import { deepCopy } from '@/utils/utils'
 
 export const jTime = {
-    componentName: 'Time',
+    widgetName: 'TimeWidget',
     props: {
-        style: {
-            isInCenter: true,
-            position: 'absolute',
-            top: 311,
-            fontSize: 27,
-        },
+        horizontalCenter: true,
+        top: 190,
+        let: 0,
+        textSize: 112,
         timeFormat: {
-            en: 'yyyy/MM/dd \u3000 EEEE',
-            zh: 'yyyy/MM/dd \u3000 EEEE',
+            default: 'HH:mm',
         },
     },
 }
@@ -45,20 +42,16 @@ export const vAppBlock = {
 
 export function getJTime(obj) {
     let tmpJTime = deepCopy(jTime)
-    tmpJTime.componentName = 'Time'
-    if (obj.style.packageId !== '') {
-        tmpJTime.props.packageId = obj.style.packageId
-    }
-    tmpJTime.props.timeFormat.zh = obj.propValue
-    tmpJTime.props.timeFormat.en = obj.propValue
-    if (obj.style.textAlign === 'center') {
-        tmpJTime.props.style.isInCenter = true
-    } else {
-        tmpJTime.props.style.isInCenter = false
-    }
-    tmpJTime.props.style.top = obj.style.top
-    tmpJTime.props.style.left = obj.style.left
-    tmpJTime.props.style.fontSize = obj.style.fontSize
+    tmpJTime.widgetName = 'TimeWidget'
 
+    if (obj.style.textAlign === 'center') {
+        tmpJTime.props.horizontalCenter = true
+    } else {
+        tmpJTime.props.horizontalCenter = false
+    }
+    tmpJTime.props.top = obj.style.top
+    tmpJTime.props.left = obj.style.left
+    tmpJTime.props.textSize = obj.style.fontSize
+    tmpJTime.props.timeFormat.default = obj.propValue
     return tmpJTime
 }

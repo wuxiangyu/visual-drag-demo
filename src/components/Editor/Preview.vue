@@ -74,7 +74,7 @@ export default {
         overflow: auto;
 
         .canvas {
-            background: #fff;
+            background: url("../../../static/images/meeting.jpg");
             position: relative;
             margin: auto;
         }

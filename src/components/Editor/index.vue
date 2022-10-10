@@ -307,7 +307,7 @@ export default {
 <style lang="scss" scoped>
 .editor {
     position: relative;
-    background: #fff;
+    background: url("../../../static/images/meeting.jpg");
     margin: auto;
 
     .lock {

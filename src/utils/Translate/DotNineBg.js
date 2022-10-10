@@ -45,7 +45,7 @@ export const vDotNineBg = {
 export function getJDotNineBg(obj) {
     let tmpJDotNineBg = deepCopy(jDotNineBg)
     tmpJDotNineBg.widgetName = 'NinePatchWidget'
-    if (obj.style.textAlign === 'center') {
+    if (obj.style.isCenter === true) {
         tmpJDotNineBg.props.horizontalCenter = true
     } else {
         tmpJDotNineBg.props.horizontalCenter = false

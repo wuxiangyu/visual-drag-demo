@@ -20,7 +20,7 @@ export const vAppBlock = {
     isLock: false,
     component: 'v-time',
     label: '时间',
-    propValue: 'yyyy/MM/dd \\u3000 EEEE',
+    propValue: 'yyyy/MM/dd \u3000 EEEE',
     icon: 'wenben',
     style: {
         rotate: 0,
@@ -44,7 +44,7 @@ export function getJTime(obj) {
     let tmpJTime = deepCopy(jTime)
     tmpJTime.widgetName = 'TimeWidget'
 
-    if (obj.style.textAlign === 'center') {
+    if (obj.style.isCenter === true) {
         tmpJTime.props.horizontalCenter = true
     } else {
         tmpJTime.props.horizontalCenter = false

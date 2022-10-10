@@ -3,6 +3,7 @@ export const commonStyle = {
     rotate: 0,
     opacity: 1,
     packageId: '',
+    isCenter: false,
 }
 
 export const commonAttr = {
@@ -101,7 +102,6 @@ const list = [
             width: 300,
             height: 200,
             borderRadius: '',
-            verticalAlign: 'middle',
             textAlign: 'center',
         },
     },

@@ -44,6 +44,7 @@
                         ></el-option>
                     </template>
                 </el-select>
+                <el-checkbox v-else-if="key == 'isCenter'" v-model="curComponent.style[key]" @change="centerWidget" />
                 <el-input v-else v-model.number="curComponent.style[key]" type="number" />
             </el-form-item>
             <el-form-item v-if="curComponent.component === 'AppBlock'" label="内容">
@@ -109,6 +110,7 @@ export default {
             selectKey: ['textAlign', 'borderStyle', 'verticalAlign'],
             styleData,
             textareaKey: ['packageId'],
+            tmp_left: 0,
         }
     },
     computed: {
@@ -155,6 +157,14 @@ export default {
             img.onload = ({ target }) => {
                 this.curComponent.propValue.url = target.result
                 // console.log(target.result)
+            }
+        },
+        centerWidget(e) {
+            if (e == true) {
+                this.tmp_left = this.curComponent.style.left
+                this.curComponent.style.left = (1280 - this.curComponent.style.width) / 2
+            } else {
+                this.curComponent.style.left = this.tmp_left
             }
         },
     },

@@ -122,6 +122,25 @@ const list = [
             textAlign: 'center',
         },
     },
+    {
+        component: 'TimeGroupWidget',
+        label: 'TimeGroup',
+        icon: 'wenben',
+        propValue: {
+            url: '../static/images/widget_image_time.png',
+            flip: {
+                horizontal: false,
+                vertical: false,
+            },
+        },
+        style: {
+            backgroundicon: '',
+            width: 244,
+            height: 83,
+            borderRadius: 3,
+            textAlign: 'center',
+        },
+    },
 ]
 
 for (let i = 0, len = list.length; i < len; i++) {

@@ -10,6 +10,7 @@ const components = [
     'AppBlock',
     'DotNineBg',
     'BackgroundWidget',
+    'TimeGroupWidget',
 ]
 
 components.forEach(key => {

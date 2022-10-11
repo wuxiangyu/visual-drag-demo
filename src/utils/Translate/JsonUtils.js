@@ -2,6 +2,7 @@ import { getJAppBlock } from '@/utils/Translate/appBlock'
 import { getJTime } from '@/utils/Translate/Vtime'
 import { getJDotNineBg } from '@/utils/Translate/DotNineBg'
 import { getJBackgroundWidget } from '@/utils/Translate/BackgroundWidget'
+import { getJTimeGroupWidget } from '@/utils/Translate/TimeGroupWidget'
 import { deepCopy } from '@/utils/utils'
 
 export function TranslateJjson(jsonfille) {
@@ -22,6 +23,10 @@ export function TranslateJjson(jsonfille) {
         } else if (jsonfille[j].component === 'BackgroundWidget') {
             console.log(jsonfille[j].propValue.appname)
             let tmpjson = getJBackgroundWidget(jsonfille[j])
+            javaJson.push(tmpjson)
+        } else if (jsonfille[j].component === 'TimeGroupWidget') {
+            console.log(jsonfille[j].propValue.appname)
+            let tmpjson = getJTimeGroupWidget(jsonfille[j])
             javaJson.push(tmpjson)
         }
         // console.log(jsonfille[j].component)

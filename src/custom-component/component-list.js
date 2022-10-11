@@ -141,6 +141,25 @@ const list = [
             textAlign: 'center',
         },
     },
+    {
+        component: 'WeatherWidget',
+        label: 'Weather',
+        icon: 'wenben',
+        propValue: {
+            url: '../static/images/widget_image_weather.png',
+            flip: {
+                horizontal: false,
+                vertical: false,
+            },
+        },
+        style: {
+            backgroundicon: '',
+            width: 244,
+            height: 83,
+            borderRadius: 3,
+            textAlign: 'center',
+        },
+    },
 ]
 
 for (let i = 0, len = list.length; i < len; i++) {

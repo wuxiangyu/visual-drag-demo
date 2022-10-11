@@ -11,6 +11,7 @@ const components = [
     'DotNineBg',
     'BackgroundWidget',
     'TimeGroupWidget',
+    'WeatherWidget',
 ]
 
 components.forEach(key => {

@@ -4,6 +4,7 @@ import { getJDotNineBg } from '@/utils/Translate/DotNineBg'
 import { getJBackgroundWidget } from '@/utils/Translate/BackgroundWidget'
 import { getJTimeGroupWidget } from '@/utils/Translate/TimeGroupWidget'
 import { getJWeatherWidget } from '@/utils/Translate/WeatherWidget'
+import { getJSearchWidget } from '@/utils/Translate/SearchWidget'
 import { deepCopy } from '@/utils/utils'
 
 export function TranslateJjson(jsonfille) {
@@ -32,6 +33,10 @@ export function TranslateJjson(jsonfille) {
         } else if (jsonfille[j].component === 'WeatherWidget') {
             console.log(jsonfille[j].propValue.appname)
             let tmpjson = getJWeatherWidget(jsonfille[j])
+            javaJson.push(tmpjson)
+        } else if (jsonfille[j].component === 'SearchWidget') {
+            console.log(jsonfille[j].propValue.appname)
+            let tmpjson = getJSearchWidget(jsonfille[j])
             javaJson.push(tmpjson)
         }
         // console.log(jsonfille[j].component)

@@ -12,6 +12,7 @@ const components = [
     'BackgroundWidget',
     'TimeGroupWidget',
     'WeatherWidget',
+    'SearchWidget',
 ]
 
 components.forEach(key => {

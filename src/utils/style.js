@@ -12,6 +12,7 @@ export const styleData = [
     { key: 'borderStyle', label: '边框风格' },
     { key: 'borderColor', label: '边框颜色' },
     { key: 'borderRadius', label: '边框半径' },
+    { key: 'isCenter', label: '是否居中' },
     { key: 'fontSize', label: '字体大小' },
     // { key: 'fontWeight', label: '字体粗细' },
     // { key: 'lineHeight', label: '行高' },
@@ -21,6 +22,7 @@ export const styleData = [
     // { key: 'opacity', label: '透明度' },
     { key: 'packageId', label: '包名' },
     { key: 'backgroundicon', label: '背景' },
+    
 ]
 
 export function getShapeStyle(style) {

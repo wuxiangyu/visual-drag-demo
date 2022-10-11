@@ -160,6 +160,25 @@ const list = [
             textAlign: 'center',
         },
     },
+    {
+        component: 'SearchWidget',
+        label: 'Search',
+        icon: 'wenben',
+        propValue: {
+            url: '../static/images/widget_image_search.png',
+            flip: {
+                horizontal: false,
+                vertical: false,
+            },
+        },
+        style: {
+            backgroundicon: '',
+            width: 506,
+            height: 42,
+            borderRadius: 7,
+            textAlign: 'center',
+        },
+    },
 ]
 
 for (let i = 0, len = list.length; i < len; i++) {

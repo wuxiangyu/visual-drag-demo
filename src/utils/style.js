@@ -11,8 +11,7 @@ export const styleData = [
     { key: 'borderWidth', label: '边框宽度' },
     { key: 'borderStyle', label: '边框风格' },
     { key: 'borderColor', label: '边框颜色' },
-    // { key: 'borderRadius', label: '边框半径' },//取消边框半径，我们不需要
-    { key: 'isCenter', label: '是否居中' },
+    { key: 'borderRadius', label: '边框半径' },
     { key: 'fontSize', label: '字体大小' },
     // { key: 'fontWeight', label: '字体粗细' },
     // { key: 'lineHeight', label: '行高' },

@@ -77,10 +77,9 @@ const list = [
             },
         },
         style: {
-            backgroundicon: 'images/files.png',
+            backgroundicon: '',
             width: 91,
             height: 91,
-            borderRadius: '',
             fontSize: 14,
             textAlign: 'center',
             color: '#FFFFFF',
@@ -98,10 +97,28 @@ const list = [
             },
         },
         style: {
-            backgroundicon: 'images/bg_app_list.png',
+            backgroundicon: '',
             width: 300,
             height: 200,
-            borderRadius: '',
+            textAlign: 'center',
+        },
+    },
+    {
+        component: 'BackgroundWidget',
+        label: '背景图',
+        icon: 'tupian',
+        propValue: {
+            url: '../static/images/widget_edit_background.png',
+            flip: {
+                horizontal: false,
+                vertical: false,
+            },
+        },
+        style: {
+            backgroundicon: '',
+            width: 506,
+            height: 133,
+            borderRadius: 3,
             textAlign: 'center',
         },
     },

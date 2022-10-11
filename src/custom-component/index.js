@@ -9,6 +9,7 @@ const components = [
     'VTime',
     'AppBlock',
     'DotNineBg',
+    'BackgroundWidget',
 ]
 
 components.forEach(key => {

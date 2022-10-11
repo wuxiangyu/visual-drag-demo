@@ -5,7 +5,7 @@ export const jTime = {
     props: {
         horizontalCenter: true,
         top: 190,
-        let: 0,
+        left: 0,
         textSize: 112,
         timeFormat: {
             default: 'HH:mm',

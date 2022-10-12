@@ -47,7 +47,7 @@ const list = [
             height: 91,
             borderRadius: '',
         },
-    },
+    },  
     {
         component: 'v-time',
         label: '时间',
@@ -103,6 +103,20 @@ const list = [
             textAlign: 'center',
         },
     },
+    {
+        component: 'BlurWidget',
+        label: 'Blur',
+        propValue: '&nbsp;',
+        icon: 'juxing',
+        style: {
+            width: 506,
+            height: 133,
+            borderColor: '#FFFFFF',
+            // borderWidth: 1,
+            borderStyle: 'dashed',
+            borderRadius: '20',
+        },
+    },    
     {
         component: 'BackgroundWidget',
         label: '背景图',

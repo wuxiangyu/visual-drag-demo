@@ -9,6 +9,7 @@ const components = [
     'VTime',
     'AppBlock',
     'DotNineBg',
+    'BlurWidget',
     'BackgroundWidget',
     'TimeGroupWidget',
     'WeatherWidget',

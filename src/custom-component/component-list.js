@@ -127,7 +127,8 @@ const list = [
         label: 'TimeGroup',
         icon: 'wenben',
         propValue: {
-            url: '../static/images/widget_image_time.png',
+            url: '',
+            urlfront: '../static/images/widget_image_time.png',
             flip: {
                 horizontal: false,
                 vertical: false,
@@ -146,7 +147,8 @@ const list = [
         label: 'Weather',
         icon: 'wenben',
         propValue: {
-            url: '../static/images/widget_image_weather.png',
+            url: '',
+            urlfront: '../static/images/widget_image_weather.png',
             flip: {
                 horizontal: false,
                 vertical: false,
@@ -165,7 +167,8 @@ const list = [
         label: 'Search',
         icon: 'wenben',
         propValue: {
-            url: '../static/images/widget_image_search.png',
+            url: '',
+            urlfront: '../static/images/widget_image_search.png',
             flip: {
                 horizontal: false,
                 vertical: false,

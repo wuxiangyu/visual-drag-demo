@@ -1,6 +1,12 @@
 <template>
     <div>
-        <canvas ref="canvas"></canvas>
+        <img :src="picPathfront" class="img_head" :style="{'--width':width , '--height':height}">
+        <img
+            v-show="show"
+            :src="picPathback"
+            class="img_head_back"
+            :style="{'--width':width , '--height':height}"
+        >
     </div>
 </template>
 
@@ -19,71 +25,76 @@ export default {
     },
     data() {
         return {
-            width: 0,
-            height: 0,
-            img: null,
-            canvas: null,
-            ctx: null,
-            isFirst: true,
+            width: '100px',
+            height: '100px',
+            picPathfront: '',
+            picPathback: '',
+            show: false,
         }
     },
     watch: {
         'element.style.width': function () {
-            this.drawImage()
+            const { width, height } = this.element.style
+            this.width = width + 'px'
+            this.height = height + 'px'
+            console.log(this.width)
+            // this.height = height
         },
         'element.style.height': function () {
-            this.drawImage()
+            const { width, height } = this.element.style
+            this.width = width + 'px'
+            this.height = height + 'px'
+            // this.width = width
+            // this.height = height
         },
-        'propValue.flip.vertical': function () {
-            this.mirrorFlip()
-        },
-        'propValue.flip.horizontal': function () {
-            this.mirrorFlip()
-        },
+        // 'propValue.flip.vertical': function () {
+        //     this.mirrorFlip()
+        // },
+        // 'propValue.flip.horizontal': function () {
+        //     this.mirrorFlip()
+        // },
         'propValue.url': function () {
-            this.isFirst = true
-            this.drawImage()
+            if (this.propValue.url !== '') {
+                this.show = true
+            }
+            this.picPathback = this.propValue.url
+            // this.drawImage()
         },
     },
     mounted() {
-        this.canvas = this.$refs.canvas
-        this.ctx = this.canvas.getContext('2d')
-        this.drawImage()
+        if (this.propValue.url !== '') {
+            this.show = true
+        }
+        this.picPathfront = this.propValue.urlfront
+        this.picPathback = this.propValue.url
+        const { width, height } = this.element.style
+        this.width = width + 'px'
+        this.height = height + 'px'
     },
     methods: {
-        drawImage() {
-            const { width, height } = this.element.style
-            this.canvas.width = width
-            this.canvas.height = height
-            if (this.isFirst) {
-                this.isFirst = false
-                this.img = document.createElement('img')
-                this.img.src = this.propValue.url
-                this.img.onload = () => {
-                    this.ctx.drawImage(this.img, 0, 0, width, height)
-                    this.mirrorFlip()
-                }
-            } else {
-                this.mirrorFlip()
-            }
-        },
-
-        mirrorFlip() {
-            const { vertical, horizontal } = this.propValue.flip
-            const { width, height } = this.element.style
-            const hvalue = horizontal ? -1 : 1
-            const vValue = vertical ? -1 : 1
-
-            // 清除图片
-            this.ctx.clearRect(0, 0, width, height)
-            // 平移图片
-            this.ctx.translate(width / 2 - width * hvalue / 2, height / 2 - height * vValue / 2)
-            // 对称镜像
-            this.ctx.scale(hvalue, vValue)
-            this.ctx.drawImage(this.img, 0, 0, width, height)
-            // 还原坐标点
-            this.ctx.setTransform(1, 0, 0, 1, 0, 0)
-        },
     },
 }
 </script>
+<style>
+.img_head{
+  /* border: 0px solid #FF0000; */
+  position:absolute;
+  width:var(--width);
+  /* width:10px;*/
+  height: var(--height);
+  z-index: 20;
+  left:0;
+  top:0;
+  /* text-align: center; */
+}
+.img_head_back{
+position:absolute;
+  width:var(--width);
+  /* width:10px;*/
+  height: var(--height);
+  left:0;
+  top:0;
+  z-index:10;
+}
+
+</style>

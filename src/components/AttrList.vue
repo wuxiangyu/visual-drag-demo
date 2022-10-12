@@ -137,7 +137,13 @@ export default {
     },
     methods: {
         isShowContent() {
-            const excludes = ['Picture', 'Group', 'DotNineBg', 'BackgroundWidget'] // 这些组件不显示内容
+            const excludes = ['Picture',
+                'Group',
+                'DotNineBg',
+                'BackgroundWidget',
+                'TimeGroupWidget',
+                'SearchWidget',
+                'WeatherWidget'] // 这些组件不显示内容
             const component = this.curComponent.component
             return !excludes.includes(component)
         },

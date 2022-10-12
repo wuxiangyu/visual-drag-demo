@@ -143,6 +143,7 @@ export default {
                 'BackgroundWidget',
                 'TimeGroupWidget',
                 'SearchWidget',
+                'BlurWidget',
                 'WeatherWidget'] // 这些组件不显示内容
             const component = this.curComponent.component
             return !excludes.includes(component)

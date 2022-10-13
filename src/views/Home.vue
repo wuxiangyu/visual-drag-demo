@@ -148,7 +148,7 @@ export default {
         .left {
             position: absolute;
             height: 100%;
-            width: 200px;
+            width: 230px;
             left: 0;
             top: 0;
             padding-top: 10px;
@@ -167,7 +167,7 @@ export default {
         }
 
         .center {
-            margin-left: 200px;
+            margin-left: 230px;
             margin-right: 262px;
             background: #f5f5f5;
             height: 100%;

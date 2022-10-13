@@ -2,7 +2,6 @@
 export const commonStyle = {
     rotate: 0,
     opacity: 1,
-    packageId: '',
     isCenter: false,
 }
 
@@ -83,6 +82,7 @@ const list = [
             fontSize: 14,
             textAlign: 'center',
             color: '#FFFFFF',
+            packageId: '',
         },
     },
     {

@@ -50,7 +50,7 @@ const list = [
     },  
     {
         component: 'v-time',
-        label: '时间',
+        label: 'Time',
         propValue: '20:14',
         icon: 'wenben',
         style: {
@@ -87,7 +87,7 @@ const list = [
     },
     {
         component: 'DotNineBg',
-        label: '点9图',
+        label: '点九',
         icon: 'tupian',
         propValue: {
             url: '../static/images/bg_app_list.png',
@@ -105,7 +105,7 @@ const list = [
     },
     {
         component: 'BlurWidget',
-        label: 'Blur',
+        label: '高斯',
         propValue: '&nbsp;',
         icon: 'juxing',
         style: {
@@ -119,7 +119,7 @@ const list = [
     },    
     {
         component: 'BackgroundWidget',
-        label: '背景图',
+        label: '背景',
         icon: 'tupian',
         propValue: {
             url: '../static/images/widget_edit_background.png',
@@ -138,7 +138,7 @@ const list = [
     },
     {
         component: 'TimeGroupWidget',
-        label: 'TimeGroup',
+        label: '时间组',
         icon: 'wenben',
         propValue: {
             url: '',
@@ -158,7 +158,7 @@ const list = [
     },
     {
         component: 'WeatherWidget',
-        label: 'Weather',
+        label: '天气',
         icon: 'wenben',
         propValue: {
             url: '',
@@ -178,7 +178,7 @@ const list = [
     },
     {
         component: 'SearchWidget',
-        label: 'Search',
+        label: '搜索',
         icon: 'wenben',
         propValue: {
             url: '',

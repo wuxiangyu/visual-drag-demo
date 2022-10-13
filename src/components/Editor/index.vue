@@ -10,6 +10,7 @@
         @contextmenu="handleContextMenu"
         @mousedown="handleMouseDown"
     >
+        <img :src="picpath" width="100%">
         <!-- 网格线 -->
         <Grid />
 
@@ -100,6 +101,7 @@ export default {
             width: 0,
             height: 0,
             isShowArea: false,
+            picpath: '../../../static/images/meeting.jpg',
             svgFilterAttrs: ['width', 'height', 'top', 'left', 'rotate'],
         }
     },
@@ -107,8 +109,15 @@ export default {
         'componentData',
         'curComponent',
         'canvasStyleData',
+        'backgroundpic',
         'editor',
     ]),
+    watch: {
+        backgroundpic(value) {
+            console.log('wuxiangyu change here' + value)
+            this.picpath = value
+        },
+    },
     mounted() {
         // 获取编辑器元素
         this.$store.commit('getEditor')
@@ -116,6 +125,9 @@ export default {
         eventBus.$on('hideArea', () => {
             this.hideArea()
         })
+        if (this.backgroundpic != '') {
+            this.picpath = this.backgroundpic
+        }
     },
     methods: {
         changeStyleWithScale,
@@ -307,7 +319,7 @@ export default {
 <style lang="scss" scoped>
 .editor {
     position: relative;
-    background: url("../../../static/images/meeting.jpg");
+    // background: url("../../../static/images/meeting.jpg");
     margin: auto;
 
     .lock {

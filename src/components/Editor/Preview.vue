@@ -9,6 +9,7 @@
                     height: changeStyleWithScale(canvasStyleData.height) + 'px',
                 }"
             >
+                <img :src="picpath" width="100%">
                 <ComponentWrapper
                     v-for="(item, index) in componentData"
                     :key="index"
@@ -37,10 +38,28 @@ export default {
             default: false,
         },
     },
+    data() {
+        return {
+            picpath: '../../../static/images/meeting.jpg',
+        }
+    },
     computed: mapState([
         'componentData',
         'canvasStyleData',
+        'backgroundpic',
     ]),
+
+    watch: {
+        backgroundpic(value) {
+            this.picpath = value
+        },
+    },
+
+    mounted() {
+        if (this.backgroundpic != '') { 
+            this.picpath = this.backgroundpic
+        }
+    },
     methods: {
         changeStyleWithScale,
         
@@ -74,7 +93,7 @@ export default {
         overflow: auto;
 
         .canvas {
-            background: url("../../../static/images/meeting.jpg");
+            // background: url("../../../static/images/meeting.jpg");
             position: relative;
             margin: auto;
         }

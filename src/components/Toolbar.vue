@@ -28,7 +28,13 @@
             >
                 拆分
             </el-button>
-
+            <label for="background" class="insert">更换壁纸</label>
+            <input
+                id="background"
+                type="file"
+                hidden
+                @change="handleImportBackground"
+            />     
             <el-button v-show="false" :disabled="!curComponent || curComponent.isLock" @click="lock">锁定</el-button>
             <el-button v-show="false" :disabled="!curComponent || !curComponent.isLock" @click="unlock">解锁</el-button>
             <div class="canvas-config">
@@ -83,6 +89,7 @@ export default {
         'canvasStyleData',
         'areaData',
         'curComponent',
+        'backgroundpic',
         'curComponentIndex',
     ]),
     created() {
@@ -180,6 +187,21 @@ export default {
 
             return data
         },        
+
+        handleImportBackground(e) {
+            let file = e.target.files[0]
+            if (!file.type.includes('image')) {
+                console.log('只能上传图片')
+                return
+            }
+            console.log(file.name)
+            let img = new FileReader()
+            img.readAsDataURL(file)
+            // console.log(img)
+            img.onload = ({ target }) => {
+                this.$store.commit('setBackGroundPic', target.result)
+            }
+        },
 
         handleFileChange(e) {
             const file = e.target.files[0]

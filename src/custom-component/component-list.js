@@ -44,7 +44,7 @@ const list = [
         style: {
             width: 91,
             height: 91,
-            borderRadius: '',
+            backgroundicon: '',
         },
     },  
     {

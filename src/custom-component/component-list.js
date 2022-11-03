@@ -1,3 +1,4 @@
+import { fileicon } from '@/utils/icon'
 // 公共样式
 export const commonStyle = {
     rotate: 0,
@@ -68,7 +69,7 @@ const list = [
         label: '应用',
         icon: 'tupian',
         propValue: {
-            url: '../static/images/files.png',
+            url: fileicon,
             appname: '文稿演示',
             flip: {
                 horizontal: false,
@@ -76,13 +77,13 @@ const list = [
             },
         },
         style: {
-            backgroundicon: '',
+            backgroundicon: 'images/files.png',
             width: 91,
             height: 91,
             fontSize: 14,
             textAlign: 'center',
             color: '#FFFFFF',
-            packageId: '',
+            packageId: 'com.seewo.easifinder',
         },
     },
     {

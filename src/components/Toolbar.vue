@@ -285,7 +285,7 @@ export default {
                 }
             }
             zip.generateAsync({ type: 'blob' }).then(fruit => {
-                saveAs(fruit, 'wuxiangyu.zip')
+                saveAs(fruit, 'launcherConfig.zip')
             })
         },
 

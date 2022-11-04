@@ -1,4 +1,4 @@
-import { fileicon } from '@/utils/icon'
+import { fileicon, editBackground } from '@/utils/icon'
 // 公共样式
 export const commonStyle = {
     rotate: 0,
@@ -36,7 +36,7 @@ const list = [
         label: '图片',
         icon: 'tupian',
         propValue: {
-            url: require('@/assets/title.jpg'),
+            url: fileicon,
             flip: {
                 horizontal: false,
                 vertical: false,
@@ -45,7 +45,7 @@ const list = [
         style: {
             width: 91,
             height: 91,
-            backgroundicon: '',
+            backgroundicon: 'images/files.png',
         },
     },  
     {
@@ -123,14 +123,14 @@ const list = [
         label: '背景',
         icon: 'tupian',
         propValue: {
-            url: '../static/images/widget_edit_background.png',
+            url: editBackground,
             flip: {
                 horizontal: false,
                 vertical: false,
             },
         },
         style: {
-            backgroundicon: '',
+            backgroundicon: 'images/widget_edit_background.png',
             width: 506,
             height: 133,
             borderRadius: 3,

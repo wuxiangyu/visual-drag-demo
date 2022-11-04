@@ -70,7 +70,7 @@ const list = [
         icon: 'tupian',
         propValue: {
             url: fileicon,
-            appname: '文稿演示',
+            appname: 'str_finder',
             flip: {
                 horizontal: false,
                 vertical: false,

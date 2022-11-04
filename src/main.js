@@ -9,9 +9,11 @@ import '@/assets/iconfont/iconfont.css'
 import '@/styles/animate.scss'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/styles/reset.css'
+import axios from 'axios'
 
 Vue.use(ElementUI, { size: 'small' })
 Vue.config.productionTip = false
+Vue.prototype.$axios = axios
 
 new Vue({
     el: '#app',

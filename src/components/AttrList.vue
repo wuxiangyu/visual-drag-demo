@@ -48,7 +48,15 @@
                 <el-input v-else v-model.number="curComponent.style[key]" type="number" />
             </el-form-item>
             <el-form-item v-if="curComponent.component === 'AppBlock'" label="内容">
-                <el-input v-model="curComponent.propValue.appname" type="textarea" />
+                <el-select v-model="curComponent.propValue.appname">
+                    <el-option
+                        v-for="option in xmlList"
+                        :key="option.key"
+                        :label="option.value"
+                        :value="option.key"
+                    >
+                    </el-option>
+                </el-select>
             </el-form-item>
             <el-form-item v-else-if="curComponent && isShowContent()" label="内容">
                 <el-input v-model="curComponent.propValue" type="textarea" />
@@ -65,6 +73,7 @@
 
 <script>
 import { styleData } from '@/utils/style'
+import X2JS from 'x2js'
 
 export default {
     data() {
@@ -111,6 +120,8 @@ export default {
             styleData,
             textareaKey: ['packageId'],
             tmp_left: 0,
+            x2js: null,
+            xmlList: [],
         }
     },
     computed: {
@@ -134,6 +145,14 @@ export default {
             arr.push('images/' + files.keys()[i].substr(2, files.keys()[i].length))
         }
         this.pictureDatas = arr
+        this.x2js = new X2JS()
+        this.$axios.get('@/../static/strings.xml', {})
+        .then(response => {
+            const xml = this.x2js.xml2js(response.data)
+            for (let i = 0; i < xml.resources.string.length; i++) {
+                this.xmlList.push({ key: xml.resources.string[i]._name, value: xml.resources.string[i].__text })
+            }
+        })
     },
     methods: {
         isShowContent() {

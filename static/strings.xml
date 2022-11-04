@@ -1,0 +1,15 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+<string name="str_white_board">Whiteboard</string>
+    <string name="str_finder">Finder</string>
+    <string name="str_screen_share">Screen Share</string>
+    <string name="str_browser">Browser</string>
+    <string name="str_theme">Theme</string>
+    <string name="str_keeper">Keeper</string>
+    <string name="str_welcome">Welcome</string>
+    <string name="str_settings">Settings</string>
+    <string name="str_introduction">Introduction</string>
+    <string name="str_mindlinker">MindLinker</string>
+    <string name="str_cloud_drive">Cloud Drive</string>
+    <string name="str_wps">WPS</string>
+    <string name="str_spider">Spider</string>
+</resources>
